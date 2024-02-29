@@ -8,6 +8,7 @@ const AddProduct = () => {
     description: "",
     price: "",
     status: "",
+    quantity:""
   });
 
   const [msg, setMsg] = useState("");
@@ -29,6 +30,7 @@ const AddProduct = () => {
           description: "",
           price: "",
           status: "",
+          quantity:""
         });
         setTimeout(() => {
           setMsg(""); 
@@ -63,6 +65,16 @@ const AddProduct = () => {
                       className="form-control"
                       onChange={(e) => handleChange(e)}
                       value={product.productName}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label style={{fontSize:'20px'}}>Enter Quantity</label>
+                    <input
+                      type="text"
+                      name="quantity"
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      value={product.quantity}
                     />
                   </div>
                   <div className="mb-3">
