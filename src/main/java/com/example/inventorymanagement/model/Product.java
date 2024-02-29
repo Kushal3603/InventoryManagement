@@ -14,6 +14,7 @@ public class Product {
     private String description;
     private Double price;
     private String status;
+    private Integer quantity;
 
     public Integer getId() {
         return id;
@@ -53,5 +54,13 @@ public class Product {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }
