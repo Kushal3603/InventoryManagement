@@ -3,8 +3,8 @@ import com.example.inventorymanagement.model.Sales;
 import com.example.inventorymanagement.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+
 @Service
 public class SalesServiceImpl implements SalesService{
 
@@ -41,6 +41,7 @@ public class SalesServiceImpl implements SalesService{
         oldSales.setCustomerName(sales.getCustomerName());
         oldSales.setQuantity(sales.getQuantity());
         oldSales.setPrice(sales.getPrice());
+        oldSales.setTotalValue(sales.getTotalValue());
         return salesRepository.save(oldSales);
     }
 }

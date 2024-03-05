@@ -16,12 +16,12 @@ public class SalesController {
     public ResponseEntity<?> saveSales(@RequestBody Sales sales){
         return new ResponseEntity<>(salesService.saveSales(sales), HttpStatus.CREATED);
     }
-    @GetMapping("/")
+    @GetMapping("/allSales")
     public ResponseEntity<?> getAllSales() {
         return new ResponseEntity<>(salesService.getAllSales(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getSalesById/{id}")
     public ResponseEntity<?> getSalesById(@PathVariable Integer id) {
         return new ResponseEntity<>(salesService.getSalesById(id), HttpStatus.OK);
     }

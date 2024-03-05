@@ -1,9 +1,6 @@
 package com.example.inventorymanagement.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Sales {
@@ -14,7 +11,10 @@ public class Sales {
     private String productName;
     private String price;
     private Integer quantity;
-    private String value;
+    private String totalValue;
+
+    @ManyToOne
+    Customer customer;
 
     public Integer getId() {
         return id;
@@ -48,12 +48,12 @@ public class Sales {
         this.quantity = quantity;
     }
 
-    public String getValue() {
-        return value;
+    public String getTotalValue() {
+        return totalValue;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setTotalValue(String totalValue) {
+        this.totalValue = totalValue;
     }
 
     public String getPrice() {
