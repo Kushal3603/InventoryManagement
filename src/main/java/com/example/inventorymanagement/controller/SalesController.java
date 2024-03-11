@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @CrossOrigin("http://localhost:3000")
 public class SalesController {
-
     @Autowired
     public SalesService salesService;
+
     @PostMapping("/saveSales")
     public ResponseEntity<?> saveSales(@RequestBody Sales sales){
         return new ResponseEntity<>(salesService.saveSales(sales), HttpStatus.CREATED);
     }
-    @GetMapping("/allSales")
+    @GetMapping("/getAllSales")
     public ResponseEntity<?> getAllSales() {
         return new ResponseEntity<>(salesService.getAllSales(), HttpStatus.OK);
     }

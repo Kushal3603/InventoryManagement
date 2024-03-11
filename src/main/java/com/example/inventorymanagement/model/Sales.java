@@ -3,18 +3,21 @@ package com.example.inventorymanagement.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name="sales")
 public class Sales {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "customer_name")
     private String customerName;
+    @Column(name = "product_name")
     private String productName;
+    @Column(name = "quantity")
+    private String quantity;
+    @Column(name = "price")
     private String price;
-    private Integer quantity;
-    private String totalValue;
-
-    @ManyToOne
-    Customer customer;
+    @Column(name = "value")
+    private String value;
 
     public Integer getId() {
         return id;
@@ -40,20 +43,12 @@ public class Sales {
         this.productName = productName;
     }
 
-    public Integer getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
-    }
-
-    public String getTotalValue() {
-        return totalValue;
-    }
-
-    public void setTotalValue(String totalValue) {
-        this.totalValue = totalValue;
     }
 
     public String getPrice() {
@@ -62,5 +57,13 @@ public class Sales {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }
