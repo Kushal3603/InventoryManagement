@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import {Link,useNavigate, useParams } from 'react-router-dom';
-import productService from '../service/product.service';
+import salesService from '../service/sales.service';
 
 
-const EditProduct = () => {
-  const [product, setProduct] = useState({
-    id: "",
-    productName: "",
-    description: "",
-    price: "",
-    quantity: "",
+
+const EditSales = () => {
+  const [sales, setSales] = useState({
+    id:"",
+    customerName:"",
+    productName:"",
+    price:"",
+    quantity:"",
+    value:"",
   });
 
   const navigate = useNavigate();
@@ -20,10 +22,10 @@ const EditProduct = () => {
   const [msg, setMsg] = useState("");
 
   useEffect(() => {
-    productService
-      .getProductById(id)
+    salesService
+      .getSalesById(id)
       .then((res) => {
-        setProduct(res.data);
+        setSales(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -32,16 +34,16 @@ const EditProduct = () => {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    setProduct({ ...product, [e.target.name]: value });
+    setSales({ ...sales, [e.target.name]: value });
   };
 
-  const ProductUpdate = (e) => {
+  const SalesUpdate = (e) => {
     e.preventDefault();
 
-    productService
-      .editProduct(product)
+    salesService
+      .editSales(sales)
       .then((res) => {
-        navigate("/products");
+        navigate("/sales");
       })
       .catch((error) => {
         console.log(error);
@@ -55,56 +57,68 @@ const EditProduct = () => {
         <div className="row">
           <div className="col-md-6 offset-md-3">
             <div className="card" style={{backgroundColor:'#1d2634', width:'300%', marginLeft:'220px', marginTop:'13px', boxShadow:'0 6px 7px -3px rgba(0, 0, 0, 0.35)'}}>
-              <div className="card-header fs-3 text-center" style={{color:'#fff'}}>Edit Product</div>
+              <div className="card-header fs-3 text-center" style={{color:'#fff'}}>Edit Sales</div>
               {msg && <p className="fs-4 text-center text-success">{msg}</p>}
 
               <div className="card-body">
                 <form onSubmit={(e) =>{ 
-                  ProductUpdate(e)
+                  SalesUpdate(e)
                   }}>
                   <div className="mb-3">
-                    <label style={{fontSize:'20px'}}>Enter Product Name</label>
+                    <label style={{fontSize:'20px', color:'#fff'}}>Enter Customer Name</label>
+                    <input
+                      type="text"
+                      name="customerName"
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      value={sales.customerName}
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label style={{fontSize:'20px',color:'#fff'}}>Enter Product Name</label>
                     <input
                       type="text"
                       name="productName"
                       className="form-control"
                       onChange={(e) => handleChange(e)}
-                      value={product.productName}
+                      value={sales.productName}
                     />
-                  </div>
-
-                  <div className="mb-3">
-                    <label style={{fontSize:'20px'}}>Enter Description</label>
-                    <input
-                      type="text"
-                      name="description"
-                      className="form-control"
-                      onChange={(e) => handleChange(e)}
-                      value={product.description}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label style={{fontSize:'20px'}}>Enter Price</label>
-                    <input
-                      type="text"
-                      name="price"
-                      className="form-control"
-                      onChange={(e) => handleChange(e)}
-                      value={product.price}
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label style={{fontSize:'20px'}}>Enter Quantity</label>
+                    
+                    <div className="mb-3">
+                    <label style={{fontSize:'20px',color:'#fff'}}>Enter Quantity</label>
                     <input
                       type="text"
                       name="quantity"
                       className="form-control"
                       onChange={(e) => handleChange(e)}
-                      value={product.quantity}
+                      value={sales.quantity}
                     />
                   </div>
-                  <button style={{fontSize:'20px'}} className="btn btn-primary col-md-12">Update</button>
+            
+                  <div className="mb-3">
+                    <label style={{fontSize:'20px',color:'#fff'}}>Enter Price</label>
+                    <input
+                      type="text"
+                      name="price"
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      value={sales.price}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label style={{fontSize:'20px',color:'#fff'}}>Enter Value</label>
+                    <input
+                      type="text"
+                      name="value"
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      value={sales.value}
+                    />
+                  </div>
+                  
+                  </div>
+                  <button style={{fontSize:'20px',color:'#fff'}} className="btn btn-primary col-md-12">Update</button>
                 </form>
               </div>
             </div>
@@ -115,4 +129,4 @@ const EditProduct = () => {
   )
 }
 
-export default EditProduct
+export default EditSales

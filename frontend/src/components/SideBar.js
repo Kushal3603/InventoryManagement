@@ -4,6 +4,7 @@ import
 {BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, 
   BsListCheck, BsMenuButtonWideFill, BsFillGearFill}
  from 'react-icons/bs'
+ import { BiSolidPurchaseTag } from "react-icons/bi";
 
 function Sidebar({openSidebarToggle, OpenSidebar}) {
   return (
@@ -27,14 +28,14 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </Link>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
-                    <BsFillGrid3X3GapFill className='icon'/> Categories
-                </a>
+                <Link to="/purchases">
+                    <BiSolidPurchaseTag  className='icon'/> Purchases
+                </Link>    
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
+                <Link to="/customers">
                     <BsPeopleFill className='icon'/> Customers
-                </a>
+                </Link>
             </li>
             <li className='sidebar-list-item'>
                 <a href="">
@@ -42,9 +43,9 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
                 </a>
             </li>
             <li className='sidebar-list-item'>
-                <a href="">
-                    <BsMenuButtonWideFill className='icon'/> Reports
-                </a>
+                <Link to="/sales">
+                    <BsMenuButtonWideFill className='icon'/> Sales
+                </Link>
             </li>
             <li className='sidebar-list-item'>
                 <a href="">

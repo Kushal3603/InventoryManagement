@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import productService from "../service/product.service";
+import salesService from "../service/sales.service";
 
-const ProductList = () => {
-  const [productList, setProductList] = useState([]);
+const SalesList = () => {
+  const [salesList, setSalesList] = useState([]);
   const [msg, setMsg] = useState("");
   useEffect(() => {
     init();
   }, []);
 
   const init = () => {
-    productService
-      .getAllProduct()
+    salesService
+      .getAllSales()
       .then((res) => {
-        setProductList(res.data);
+        setSalesList(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const deleteProduct = (id) => {
-    productService
-      .deleteProduct(id)
+  const deleteSales = (id) => {
+    salesService
+      .deleteSales(id)
       .then((res) => {
         setMsg("Deleted Sucessfully");
         init();
@@ -39,7 +39,7 @@ const ProductList = () => {
           <div className="col-md-12">
             <div className="card" style={{width:'200%', left:'-252px', background:'bottom'}}>
               <div className="card-header fs-3 text-center" style={{color:'#fff'}}>
-                List of Products
+                List of Sales
                 {msg && <p className="fs-4 text-center text-success">{msg}</p>}
               </div>
 
@@ -48,8 +48,8 @@ const ProductList = () => {
                   <thead>
                     <tr>
                       <th scope="col">No.</th>
+                      <th scope="col">Customer Name</th>
                       <th scope="col">Product Name</th>
-                      <th scope="col">Description</th>
                       <th scope="col">Price</th>
                       <th scope="col">Quantity</th>
                       <th scope="col">Value</th>
@@ -57,20 +57,20 @@ const ProductList = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {productList.map((p, num) => (
+                    {salesList.map((s, num) => (
                       <tr>
                         <td>{num + 1}</td>
-                        <td>{p.productName}</td>
-                        <td>{p.description}</td>
-                        <td>{p.price}</td>
-                        <td>{p.quantity}</td>
-                        <td>{p.value}</td>
+                        <td>{s.customerName}</td>
+                        <td>{s.productName}</td>
+                        <td>{s.price}</td>
+                        <td>{s.quantity}</td>
+                        <td>{s.value}</td>
                         <td>
-                          <Link to={'/editProduct/'+p.id} className="btn btn-sm btn-primary">
+                          <Link to={'/editSales/'+s.id} className="btn btn-sm btn-primary">
                             Edit
                           </Link>
                           <button
-                            onClick={() => deleteProduct(p.id)}
+                            onClick={() => deleteSales(s.id)}
                             className="btn btn-sm btn-danger ms-1"
                           >
                             Delete
@@ -89,4 +89,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default SalesList;

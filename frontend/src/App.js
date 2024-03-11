@@ -6,6 +6,11 @@ import Sidebar from './components/SideBar';
 import Products from './components/Products';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import AddProduct from './components/AddProduct';
+import EditProduct from './components/EditProduct';
+import Sales from './components/Sales';
+import AddSales from './components/AddSales';
+import EditSales from './components/EditSales';
+
 
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -22,8 +27,13 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/dashboard' element={<Home />} />
+          
           <Route path='/products' element={<Products />} />
           <Route path='/addProduct' element={<AddProduct/>}></Route>
+          <Route path='/editProduct/:id' element={<EditProduct />}></Route>
+          <Route path='/sales' element={<Sales/>}></Route>
+          <Route path='/addSales' element={<AddSales/>}></Route>
+          <Route path='/editSales/:id' element={<EditSales/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

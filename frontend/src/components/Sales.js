@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ProductList from './ProductList'
+import SalesList from './SalesList'
 
-function Products() {
+function Sales() {
   return (
     <>
     <div><nav class="navbar navbar-expand-lg " style={{width:'300%',marginTop: '-58px', backgroundColor:'#1d2634'}}>
@@ -14,7 +14,7 @@ function Products() {
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           
           <li class="nav-item">
-            <Link to="/addProduct" class="nav-link"style={{color:'#fff'}} href="#">Add Product</Link>
+            <Link to="/addSales" class="nav-link"style={{color:'#fff'}} href="#">Add Sales</Link>
           </li>
           
           <li class="nav-item dropdown">
@@ -30,19 +30,16 @@ function Products() {
           </li>
           
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="btn btn-outline-success" style={{color:'#fff'}}type="submit">Search</button>
-        </form>
+       
       </div>
     </div>
   </nav>
   </div>
   <div>
-    <ProductList/>
+    <SalesList/>
   </div>
   </>
   )
   
 }
-export default Products
+export default Sales

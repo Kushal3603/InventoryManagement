@@ -6,7 +6,7 @@ import
  { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
 
-function Home() {
+function Home(props) {
 
     const data = [
         {
@@ -66,7 +66,7 @@ function Home() {
                     <h3>PRODUCTS</h3>
                     <BsFillArchiveFill className='card_icon'/>
                 </div>
-                <h1>300</h1>
+                <h1>{props.quantity}</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>

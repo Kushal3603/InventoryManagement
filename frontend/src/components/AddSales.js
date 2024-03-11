@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import productService from '../service/product.service'
 import '../App.css'
 import Home from "./Home";
+import salesService from "../service/sales.service";
 
-const AddProduct = () => {
-  const [product, setProduct] = useState({
-    productName: "",
-    description: "",
-    price: "",
-    status: "",
-    quantity: "",
+const AddSales = () => {
+  const [sales, setSales] = useState({
+    customerName:"",
+    productName:"",
+    price:"",
+    quantity:"",
+    value:"",
   });
 
   const [msg, setMsg] = useState("");
@@ -17,32 +17,32 @@ const AddProduct = () => {
 
   useEffect(() => {
     const calculateTotalQuantity = () => {
-      const products = JSON.parse(localStorage.getItem("products")) || [];
-      const total = products.reduce((acc, curr) => acc + parseInt(curr.quantity), 0);
+      const sales = JSON.parse(localStorage.getItem("sales")) || [];
+      const total = sales.reduce((acc, curr) => acc + parseInt(curr.quantity), 0);
       setTotalQuantity(total);
     };
 
     calculateTotalQuantity();
-  }, [product.quantity]);
+  }, [sales.quantity]);
 
   const handleChange = (e) => {
     const value = e.target.value;
-    setProduct({ ...product, [e.target.name]: value });
+    setSales({ ...sales, [e.target.name]: value });
   };
 
-  const ProductRegister = (e) => {
+  const SalesRegister = (e) => {
     e.preventDefault();
-    productService
-      .saveProduct(product)
+    salesService
+      .saveSales(sales)
       .then((res) => {
-        console.log("Product Added Successfully");
-        setMsg("Product Added Successfully");
-        setProduct({
-          productName: "",
-          description: "",
-          price: "",
-          status: "",
-          quantity: "",
+        console.log("Sales Added Successfully");
+        setMsg("Sales Added Successfully");
+        setSales({
+            customerName:"",
+            productName:"",
+            price:"",
+            quantity:"",
+            value:"",
         });
         setTimeout(() => {
           setMsg("");
@@ -58,9 +58,9 @@ const AddProduct = () => {
       <div className="container mt-3">
         <div className="row">
           <div className="col-md-6 offset-md-3">
-            <div>New Product</div>
+            <div>New Sales</div>
             <div className="card" style={{ backgroundColor: "#1d2634", color: '#fff', width: '300%', marginLeft: '220px', marginTop: '13px', boxShadow: '0 6px 7px -3px rgba(0, 0, 0, 0.35)' }}>
-              <div className="card-header fs-3 text-center">Add Product</div>
+              <div className="card-header fs-3 text-center">Add Sales</div>
               {msg && (
                 <div>
                   <p style={{ transition: 'opacity 1s', opacity: msg ? 1 : 0 }} className="fs-4 text-center text-success">{msg}</p>
@@ -68,7 +68,17 @@ const AddProduct = () => {
               )}
 
               <div className="card-body">
-                <form onSubmit={(e) => ProductRegister(e)}>
+                <form onSubmit={(e) => SalesRegister(e)}>
+                  <div className="mb-3">
+                    <label style={{ fontSize: '20px' }}>Enter Customer Name</label>
+                    <input
+                      type="text"
+                      name="customerName"
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      value={sales.customerName}
+                    />
+                  </div>
                   <div className="mb-3">
                     <label style={{ fontSize: '20px' }}>Enter Product Name</label>
                     <input
@@ -76,7 +86,7 @@ const AddProduct = () => {
                       name="productName"
                       className="form-control"
                       onChange={(e) => handleChange(e)}
-                      value={product.productName}
+                      value={sales.productName}
                     />
                   </div>
                   <div className="mb-3">
@@ -86,17 +96,7 @@ const AddProduct = () => {
                       name="quantity"
                       className="form-control"
                       onChange={(e) => handleChange(e)}
-                      value={product.quantity}
-                    />
-                  </div>
-                  <div className="mb-3">
-                    <label style={{ fontSize: '20px' }}>Enter Description</label>
-                    <input
-                      type="text"
-                      name="description"
-                      className="form-control"
-                      onChange={(e) => handleChange(e)}
-                      value={product.description}
+                      value={sales.quantity}
                     />
                   </div>
                   <div className="mb-3">
@@ -106,17 +106,17 @@ const AddProduct = () => {
                       name="price"
                       className="form-control"
                       onChange={(e) => handleChange(e)}
-                      value={product.price}
+                      value={sales.price}
                     />
                   </div>
                   <div className="mb-3">
-                    <label style={{ fontSize: '20px' }}>Enter Status</label>
+                    <label style={{ fontSize: '20px' }}>Enter Value</label>
                     <input
                       type="text"
-                      name="status"
+                      name="value"
                       className="form-control"
                       onChange={(e) => handleChange(e)}
-                      value={product.status}
+                      value={sales.value}
                     />
                   </div>
                   <button style={{ fontSize: '20px' }} className="btn btn-primary col-md-12">Add</button>
@@ -132,4 +132,4 @@ const AddProduct = () => {
 
 };
 
-export default AddProduct;
+export default AddSales;
