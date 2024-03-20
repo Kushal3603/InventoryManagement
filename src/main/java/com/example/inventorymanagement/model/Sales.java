@@ -2,6 +2,8 @@ package com.example.inventorymanagement.model;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="sales")
 public class Sales {
@@ -10,6 +12,9 @@ public class Sales {
     private Integer id;
     @Column(name = "customer_name")
     private String customerName;
+    @ManyToOne
+    @JoinColumn(name = "customer_id") // This is the foreign key column name
+    private Customer customer;
     @Column(name = "product_name")
     private String productName;
     @Column(name = "quantity")
@@ -66,4 +71,12 @@ public class Sales {
     public void setValue(String value) {
         this.value = value;
     }
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
 }
