@@ -10,6 +10,8 @@ import EditProduct from './components/EditProduct';
 import Sales from './components/Sales';
 import AddSales from './components/AddSales';
 import EditSales from './components/EditSales';
+import Customers from './components/Customers';
+
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
           <Route path='/sales' element={<Sales/>}></Route>
           <Route path='/addSales' element={<AddSales/>}></Route>
           <Route path='/editSales/:id' element={<EditSales/>}></Route>
+          <Route path='/customers' element={<Customers/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

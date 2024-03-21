@@ -10,6 +10,7 @@ const EditProduct = () => {
     description: "",
     price: "",
     quantity: "",
+    value:""
   });
 
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ const EditProduct = () => {
       <div className="container mt-3">
         <div className="row">
           <div className="col-md-6 offset-md-3">
-            <div className="card" style={{backgroundColor:'#1d2634', width:'300%', marginLeft:'220px', marginTop:'13px', boxShadow:'0 6px 7px -3px rgba(0, 0, 0, 0.35)'}}>
+            <div className="card" style={{backgroundColor:'#1d2634', width:'300%', marginLeft:'220px', marginTop:'13px', boxShadow:'0 6px 7px -3px rgba(0, 0, 0, 0.35)',color:'#fff'}}>
               <div className="card-header fs-3 text-center" style={{color:'#fff'}}>Edit Product</div>
               {msg && <p className="fs-4 text-center text-success">{msg}</p>}
 
@@ -102,6 +103,16 @@ const EditProduct = () => {
                       className="form-control"
                       onChange={(e) => handleChange(e)}
                       value={product.quantity}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label style={{ fontSize: '20px' }}>Enter Value</label>
+                    <input
+                      type="text"
+                      name="value"
+                      className="form-control"
+                      onChange={(e) => handleChange(e)}
+                      value={product.value}
                     />
                   </div>
                   <button style={{fontSize:'20px'}} className="btn btn-primary col-md-12">Update</button>

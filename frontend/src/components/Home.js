@@ -1,7 +1,8 @@
 import React from 'react'
 import 
-{ BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, BsFillBellFill}
+{ BsFillArchiveFill, BsFillGrid3X3GapFill, BsMenuButtonWideFill, BsPeopleFill, BsFillBellFill}
  from 'react-icons/bs'
+ import { BiSolidPurchaseTag } from "react-icons/bi";
  import 
  { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } 
  from 'recharts';
@@ -63,31 +64,31 @@ function Home(props) {
         <div className='main-cards'>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>PRODUCTS</h3>
-                    <BsFillArchiveFill className='card_icon'/>
-                </div>
-                <h1>{props.quantity}</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>CATEGORIES</h3>
-                    <BsFillGrid3X3GapFill className='card_icon'/>
-                </div>
-                <h1>12</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
                     <h3>CUSTOMERS</h3>
                     <BsPeopleFill className='card_icon'/>
                 </div>
-                <h1>33</h1>
+                <h1>1</h1>
             </div>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>ALERTS</h3>
-                    <BsFillBellFill className='card_icon'/>
+                    <h3>PRODUCTS</h3>
+                    <BsFillArchiveFill className='card_icon'/>
                 </div>
-                <h1>42</h1>
+                <h1>2</h1>
+            </div>
+            <div className='card'>
+                <div className='card-inner'>
+                    <h3>SALES</h3>
+                    <BsMenuButtonWideFill className='card_icon'/>
+                </div>
+                <h1>3</h1>
+            </div>
+            <div className='card'>
+                <div className='card-inner'>
+                    <h3>PURCHASES</h3>
+                    <BiSolidPurchaseTag className='card_icon'/>
+                </div>
+                <h1>1</h1>
             </div>
         </div>
 

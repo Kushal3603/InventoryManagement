@@ -17,18 +17,6 @@ function Sales() {
             <Link to="/addSales" class="nav-link"style={{color:'#fff'}} href="#">Add Sales</Link>
           </li>
           
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style={{color:'#fff'}}href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" style={{color:'#9e9ea4'}} href="#">Action</a></li>
-              <li><a class="dropdown-item"style={{color:'#9e9ea4'}} href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"/></li>
-              <li><a class="dropdown-item"style={{color:'#9e9ea4'}} href="#">Something else here</a></li>
-            </ul>
-          </li>
-          
         </ul>
        
       </div>

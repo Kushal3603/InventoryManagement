@@ -58,7 +58,6 @@ const AddSales = () => {
       <div className="container mt-3">
         <div className="row">
           <div className="col-md-6 offset-md-3">
-            <div>New Sales</div>
             <div className="card" style={{ backgroundColor: "#1d2634", color: '#fff', width: '300%', marginLeft: '220px', marginTop: '13px', boxShadow: '0 6px 7px -3px rgba(0, 0, 0, 0.35)' }}>
               <div className="card-header fs-3 text-center">Add Sales</div>
               {msg && (
@@ -126,7 +125,6 @@ const AddSales = () => {
           </div>
         </div>
       </div>
-      <p>Total Quantity of Products: {totalQuantity}</p>
     </>
   );
 

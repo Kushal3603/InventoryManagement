@@ -10,6 +10,7 @@ const AddProduct = () => {
     price: "",
     status: "",
     quantity: "",
+    value:""
   });
 
   const [msg, setMsg] = useState("");
@@ -58,7 +59,6 @@ const AddProduct = () => {
       <div className="container mt-3">
         <div className="row">
           <div className="col-md-6 offset-md-3">
-            <div>New Product</div>
             <div className="card" style={{ backgroundColor: "#1d2634", color: '#fff', width: '300%', marginLeft: '220px', marginTop: '13px', boxShadow: '0 6px 7px -3px rgba(0, 0, 0, 0.35)' }}>
               <div className="card-header fs-3 text-center">Add Product</div>
               {msg && (
@@ -109,14 +109,15 @@ const AddProduct = () => {
                       value={product.price}
                     />
                   </div>
+                  
                   <div className="mb-3">
-                    <label style={{ fontSize: '20px' }}>Enter Status</label>
+                    <label style={{ fontSize: '20px' }}>Enter Value</label>
                     <input
                       type="text"
-                      name="status"
+                      name="value"
                       className="form-control"
                       onChange={(e) => handleChange(e)}
-                      value={product.status}
+                      value={product.value}
                     />
                   </div>
                   <button style={{ fontSize: '20px' }} className="btn btn-primary col-md-12">Add</button>
@@ -126,7 +127,6 @@ const AddProduct = () => {
           </div>
         </div>
       </div>
-      <p>Total Quantity of Products: {totalQuantity}</p>
     </>
   );
 

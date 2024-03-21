@@ -24,24 +24,16 @@ function Sidebar({openSidebarToggle, OpenSidebar}) {
             </li>
             <li className='sidebar-list-item'>
                 <Link to="/products">
-                    <BsFillArchiveFill className='icon'/> Products
+                    <BiSolidPurchaseTag className='icon'/> Purchases
                 </Link>
             </li>
-            <li className='sidebar-list-item'>
-                <Link to="/purchases">
-                    <BiSolidPurchaseTag  className='icon'/> Purchases
-                </Link>    
-            </li>
+            
             <li className='sidebar-list-item'>
                 <Link to="/customers">
                     <BsPeopleFill className='icon'/> Customers
                 </Link>
             </li>
-            <li className='sidebar-list-item'>
-                <a href="">
-                    <BsListCheck className='icon'/> Inventory
-                </a>
-            </li>
+
             <li className='sidebar-list-item'>
                 <Link to="/sales">
                     <BsMenuButtonWideFill className='icon'/> Sales
