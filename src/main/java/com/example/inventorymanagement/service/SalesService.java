@@ -1,8 +1,6 @@
 package com.example.inventorymanagement.service;
 
-import com.example.inventorymanagement.model.Product;
 import com.example.inventorymanagement.model.Sales;
-
 import java.util.List;
 
 public interface SalesService {
